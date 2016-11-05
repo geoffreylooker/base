@@ -1,4 +1,4 @@
-echo $(date) >> /home/geoffrey/log.txt
+echo $(date) >> log.txt
 
 echo $?
 
