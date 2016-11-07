@@ -7,15 +7,15 @@ os:
 env:
   matrix:
   #- OS_TYPE=centos OS_VERSION=6
-  - OS_TYPE=centos OS_VERSION=7
-  - OS_TYPE=debian OS_VERSION=8
+  - TRAVIS_OS_TYPE=centos TRAVIS_OS_VERSION=7
+  - TRAVIS_OS_TYPE=debian TRAVIS_OS_VERSION=8
 
 #dist: trusty
   
 before_install:
     - if [[ "$TRAVIS_OS_NAME" == "linux" ]]; then echo linux; fi
-    - if [[ "$OS_TYPE" == "centos" ]]; then export distro=Redhat             ; fi
-    - if [[ "$OS_TYPE" == "debian" ]]; then export distro=Debian             ; fi
+    - if [[ "$TRAVIS_OS_TYPE" == "centos" ]]; then export distro=Redhat             ; fi
+    - if [[ "$TRAVIS_OS_TYPE" == "debian" ]]; then export distro=Debian             ; fi
     
 script:
     - ./try_main_base.sh
