@@ -5,6 +5,14 @@ os:
     - linux
 #    - osx
 
+env:
+  matrix:
+  #- OS_TYPE=centos OS_VERSION=6
+  - OS_TYPE=centos OS_VERSION=7
+  - OS_TYPE=debian OS_VERSION=8
+
+#dist: trusty
+  
 before_install:
     - if [[ "$TRAVIS_OS_NAME" == "osx" ]]; then brew update                  ; fi
     - if [[ "$TRAVIS_OS_NAME" == "linux" ]]; then echo linux; fi
