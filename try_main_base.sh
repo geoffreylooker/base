@@ -353,11 +353,11 @@ install_packages() {
   echo "dist: ${breed}"
   case ${breed} in
     "Redhat")
-      rpm_install ;;
+      rpm_install "${RPM_PACKAGES}" ;;
     "Debian")
-      apt_install ;;
+      apt_install "${APT_PACKAGES}" ;;
     "Ubuntu")
-      apt_install ;;
+      apt_install "${APT_PACKAGES}" ;;
   esac
 }
 
