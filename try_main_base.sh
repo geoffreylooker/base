@@ -1,6 +1,5 @@
 #! /bin/bash
 
-
 ### start credits: https://github.com/dylanaraps/neofetch/blob/master/neofetch
 
 gettitle() {
@@ -288,11 +287,12 @@ rpm_upgrade() {
   echo "== Refreshing rpm packages =="
   if ! $sudo yum update && yum $sudo upgrade; then
     echo "== rpm yum update failed, NOT retrying =="
-  if
+  fi
 }
 
 rpm_install() {
   getsudo
+  require_pkgs
   local -r packages=( $@ )
   installed=true
   for package in "${packages[@]}"; do
@@ -326,6 +326,7 @@ apt_upgrade() {
 
 apt_install() {
   getsudo
+  require_pkgs
   local -r packages=( $@ )
   installed=true
   for package in "${packages[@]}"; do
@@ -360,8 +361,18 @@ install_packages() {
   esac
 }
 
+install_packages
+
 ### end credits: https://github.com/GoogleCloudPlatform/puppetlabs-gce_compute/blob/master/files/puppet-community.sh
 
-declare -p
+gettitle
+getsudo
+getos
+getdistro
 
+getlocalip
+getpublicip
+getscriptdir
+
+declare -p
 
