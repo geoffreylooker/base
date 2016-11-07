@@ -1,12 +1,28 @@
-language: python
+language: bash
+sudo: required
+
+os:
+    - linux
+#    - osx
 
 before_install:
-  - export WHEELHOUSE=${HOME}/wheelhouse
-
-install:
-   # Needed to build wheels.
-   #- pip install tox
-   - pip install pyyaml
+    - if [[ "$TRAVIS_OS_NAME" == "osx" ]]; then brew update                  ; fi
+    - if [[ "$TRAVIS_OS_NAME" == "linux" ]]; then echo linux; fi
 
 script:
-  - ./try_main_base.sh
+    - ./try_main_base.sh
+
+
+#language: python
+#
+#before_install:
+#  - export WHEELHOUSE=${HOME}/wheelhouse
+#
+#install:
+#   # Needed to build wheels.
+#   #- pip install tox
+#   - pip install pyyaml
+#
+#script:
+#  - ./try_main_base.sh
+#
