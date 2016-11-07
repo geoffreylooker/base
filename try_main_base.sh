@@ -277,6 +277,22 @@ require_pkgs() {
   APT_PACKAGES="$APT_PACKAGES ssh"		    # 
 }
 
+  # common to all os/distro
+  PACKAGES=""
+  PACKAGES="$PACKAGES wget"			# Used for fetching sources.
+  PACKAGES="$PACKAGES curl"			# Used for fetching sources.
+  PACKAGES="$PACKAGES git"			# Used by the neovim build.
+  PACKAGES="$PACKAGES tar"
+  PACKAGES="$PACKAGES unzip"
+  # rpm 
+  RPM_PACKAGES=""
+  RPM_PACKAGES="$RPM_PACKAGES $PACKAGES"		# Include common packages
+  RPM_PACKAGES="$RPM_PACKAGES openssh"		# 
+  # deb
+  APT_PACKAGES=""
+  APT_PACKAGES="$APT_PACKAGES $PACKAGES"		# Include common packages
+  APT_PACKAGES="$APT_PACKAGES ssh"		    # 
+  
 ### end credits: https://github.com/termux/termux-packages/blob/47182adc56469c1856a0cb70c76d56f80d2cbae1/scripts/setup-ubuntu.sh
 
 
