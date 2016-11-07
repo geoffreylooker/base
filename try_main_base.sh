@@ -166,8 +166,8 @@ getdistro() {
     [[ "$os_arch" == "on" ]] && \
         distro+=" $(uname -m)"
 
-    [[ "${ascii_distro:-auto}" == "auto" ]] && \
-        ascii_distro="$(trim "$distro")"
+    #[[ "${ascii_distro:-auto}" == "auto" ]] && \
+    #    ascii_distro="$(trim "$distro")"
 }
 
 getscriptdir() {
